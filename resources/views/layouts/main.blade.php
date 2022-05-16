@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Edica :: Home</title>
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/font-awesome/css/all.min.css') }}a">
     <link rel="stylesheet" href="{{ asset('assets/vendors/aos/aos.css') }}">
@@ -27,6 +28,17 @@
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('main.index') }}">Блог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
+                    </li>
+                    <li class="nav-item">
+                        @auth()
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Войти</a>
+                        @endauth
+                        @guest()
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет</a>
+                        @endguest
                     </li>
                 </ul>
 
